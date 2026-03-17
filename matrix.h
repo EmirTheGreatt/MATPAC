@@ -33,6 +33,6 @@ void    add_row(Matrix *M, size_t src_row, size_t dst_row, double scalar);
 void    add_col(Matrix *M, size_t src_col, size_t dst_col, double scalar);
 
 // Submatrix
-//TODO
 Matrix  *submatrix(Matrix *M, size_t startrow, size_t endrow, size_t startcol, size_t endcol, size_t steprow, size_t stepcol);
+//TODO
 double  r_determinant(Matrix *M);

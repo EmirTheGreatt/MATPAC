@@ -22,13 +22,12 @@ int main()
     printf("\n");
     display(&M2);
     printf("\n");
-    display(mat_mul(&M1, &M2));
+    Matrix *newM1 = submatrix(&M1, 0, 3, 0, 3, 2, 2);
+    Matrix *newM2 = submatrix(&M2, 0, 3, 0, 3, 2, 2);
+    display(newM1);
     printf("\n");
-    display(mat_mul(&M1, id(3)));
+    display(newM2);
     printf("\n");
-    display(mat_mul(id(3), &M2));
-    printf("\n");
-
 
 
 

@@ -16,9 +16,9 @@ Matrix  *scalar_mul(Matrix *M, double scalar);
 void    free_matrix(Matrix *M); // Frees M -> data and M, UB if M is not in allocated memory
 Matrix  *new_mat(size_t rows, size_t cols); // Declares a new matrix and allocates rows*cols*sizeof(double) memory without initializing
 Matrix  *hconcat(Matrix *M1, Matrix *M2);
+Matrix  *vconcat(Matrix *M1, Matrix *M2);
 
 //TODO
-Matrix  *vconcat(Matrix *M1, Matrix *M2);
 Matrix  *mat_mul(Matrix *M1, Matrix *M2);
 Matrix  *zeros(size_t rows, size_t cols);
 Matrix  *ns(size_t rows, size_t cols, double l);

@@ -22,5 +22,6 @@ int main()
     printf("\n");
     display(&M2);
     printf("\n");
-    display(hconcat(&M1, &M2));
+    display(vconcat(&M1, &M2));
+
 }

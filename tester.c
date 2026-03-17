@@ -22,8 +22,16 @@ int main()
     printf("\n");
     display(&M2);
     printf("\n");
-    display(vconcat(&M1, &M2));
+    display(transpose(&M1));
     printf("\n");
-    display(id(15));
+
+    display(transpose(&M2));
+    printf("\n");
+    
+    display(&M3);
+    printf("\n");
+    display(transpose(&M3));
+
+
 
 }

@@ -17,9 +17,9 @@ void    free_matrix(Matrix *M); // Frees M -> data and M, UB if M is not in allo
 Matrix  *new_mat(size_t rows, size_t cols); // Declares a new matrix and allocates rows*cols*sizeof(double) memory without initializing
 Matrix  *hconcat(Matrix *M1, Matrix *M2);
 Matrix  *vconcat(Matrix *M1, Matrix *M2);
+Matrix  *ns(size_t rows, size_t cols, double l);
+Matrix  *zeros(size_t rows, size_t cols);
+Matrix  *id(size_t n);
 
 //TODO
 Matrix  *mat_mul(Matrix *M1, Matrix *M2);
-Matrix  *zeros(size_t rows, size_t cols);
-Matrix  *ns(size_t rows, size_t cols, double l);
-Matrix  *id(size_t n); // identity matrix of size n x n

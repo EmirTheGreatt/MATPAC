@@ -22,3 +22,17 @@ Matrix  *zeros(size_t rows, size_t cols);
 Matrix  *id(size_t n);
 Matrix  *transpose(Matrix *M);
 Matrix  *mat_mul(Matrix *M1, Matrix *M2);
+
+// Elementary row/column operations
+// TODO
+void    row_swap(Matrix *M, size_t row1, size_t row2);
+void    col_swap(Matrix *M, size_t col1, size_t col2);
+void    scale_row(Matrix *M, size_t row, double scalar);
+void    scale_col(Matrix *M, size_t col, double scalar);
+void    add_row(Matrix *M, size_t src_row, size_t dst_row, double scalar);
+void    add_col(Matrix *M, size_t src_col, size_t dst_col, double scalar);
+
+// Submatrix
+//TODO
+Matrix  *submatrix(Matrix *M, size_t startrow, size_t endrow, size_t startcol, size_t endcol, size_t steprow, size_t stepcol);
+double  r_determinant(Matrix *M);

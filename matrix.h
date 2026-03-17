@@ -20,6 +20,7 @@ Matrix  *vconcat(Matrix *M1, Matrix *M2);
 Matrix  *ns(size_t rows, size_t cols, double l);
 Matrix  *zeros(size_t rows, size_t cols);
 Matrix  *id(size_t n);
+Matrix  *transpose(Matrix *M);
 
 //TODO
 Matrix  *mat_mul(Matrix *M1, Matrix *M2);

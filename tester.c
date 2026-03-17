@@ -22,15 +22,13 @@ int main()
     printf("\n");
     display(&M2);
     printf("\n");
-    display(transpose(&M1));
+    display(mat_mul(&M1, &M2));
+    printf("\n");
+    display(mat_mul(&M1, id(3)));
+    printf("\n");
+    display(mat_mul(id(3), &M2));
     printf("\n");
 
-    display(transpose(&M2));
-    printf("\n");
-    
-    display(&M3);
-    printf("\n");
-    display(transpose(&M3));
 
 
 

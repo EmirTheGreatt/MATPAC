@@ -23,5 +23,7 @@ int main()
     display(&M2);
     printf("\n");
     display(vconcat(&M1, &M2));
+    printf("\n");
+    display(id(15));
 
 }

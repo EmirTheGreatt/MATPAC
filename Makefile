@@ -11,6 +11,10 @@ SRC = $(filter-out tester.c,$(wildcard *.c))
 # Object files
 OBJ = $(SRC:.c=.o)
 
+# Tester
+TEST = tester.c
+PROGRAM = program
+
 # Default target
 all: $(LIB)
 
@@ -24,6 +28,9 @@ $(LIB): $(OBJ)
 
 # Clean up
 clean:
-	rm -f $(OBJ) $(LIB)
+	rm -f $(OBJ) $(LIB) $(PROGRAM)
 
-.PHONY: all clean
+test:
+	gcc $(TEST) $(LIB) -o $(PROGRAM)
+
+.PHONY: all clean test

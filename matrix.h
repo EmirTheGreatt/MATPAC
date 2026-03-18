@@ -11,6 +11,14 @@ typedef struct{
     Matrix  *U;
 }   PLU;
 
+typedef struct{
+    char    type;
+    char    orientation;
+    size_t  src;
+    size_t  dst;
+    double  scalar;
+}   ELM; //Questionable choice, could require some rethinking
+
 void    add_inplace(Matrix *M1, Matrix *M2);
 void    display(Matrix *M);
 Matrix  *mat_dup(Matrix *M);
@@ -44,3 +52,6 @@ void    add_col(Matrix *M, size_t src_col, size_t dst_col, double scalar);
 Matrix  *submatrix(Matrix *M, size_t startrow, size_t endrow, size_t startcol, size_t endcol, size_t steprow, size_t stepcol);
 double  r_determinant(Matrix *M);
 
+// Big guns
+PLU     PLUdecomp(Matrix *M);
+Matrix  *invert(Matrix *M);

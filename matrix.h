@@ -77,3 +77,4 @@ Matrix  *reshape(Matrix *M, size_t new_rows, size_t new_cols);
 Matrix  *map(Matrix *M, double (*f)(double));
 void    copy_onto(Matrix *dst_mat, Matrix *src_mat, size_t row_index, size_t col_index);
 Matrix  *tile(Matrix *M, size_t vertical, size_t horizontal);
+Matrix  *kronecker(Matrix *M1, Matrix *M2);

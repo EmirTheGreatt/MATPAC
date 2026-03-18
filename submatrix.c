@@ -9,6 +9,7 @@ static size_t find_num(size_t start, size_t end, size_t stepsize)
     return (end - 1) / stepsize + 1;
 }
 
+// Can't reverse a matrix as of now
 Matrix  *submatrix(Matrix *M, size_t startrow, size_t endrow, size_t startcol, size_t endcol, size_t steprow, size_t stepcol)
 {
     size_t rows = find_num(startrow, endrow, steprow);

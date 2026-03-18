@@ -56,9 +56,12 @@ Matrix  *submatrix(Matrix *M, size_t startrow, size_t endrow, size_t startcol, s
 double  r_determinant(Matrix *M);
 
 // Vectors
-double  dotp(Matrix *M1, Matrix *M2);
+double  dotp(Matrix *M1, Matrix *M2); // dot product of two column vectors
+double  norm(Matrix *M); // 2 norm of an arbitrary matrix
+double  pnorm(Matrix *M, double p); // p norm of an arbitrary matrix
 
 // Big guns
+// TODO!
 PLU     PLUdecomp(Matrix *M);
 Matrix  *inverse(Matrix *M);
 double  *eigenvalues(Matrix *M);

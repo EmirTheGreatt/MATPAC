@@ -62,6 +62,18 @@ double  pnorm(Matrix *M, double p); // p norm of an arbitrary matrix
 
 // Big guns
 // TODO!
+// IDEA! Gauss elimination but apply to a new mat too
+// example: GaussID(M1, M2); do operations on M1 to get it to be ID but apply same things to M2
+// GaussID(M, Vec) solves Mx = Vec
+// GaussID(M, id(n)) inverts M
+// GaussUP(M, id(n)) LU decomps ?
 PLU     PLUdecomp(Matrix *M);
-Matrix  *inverse(Matrix *M);
+Matrix  *inverse(Matrix *M); // inverts matrix M, returns NULL if M is singular
 double  *eigenvalues(Matrix *M);
+
+// Misc
+Matrix  *range(double x, double y, size_t n);
+Matrix  *reshape(Matrix *M, size_t new_rows, size_t new_cols);
+Matrix  *map(Matrix *M, double (*f)(double));
+// TODO
+Matrix  *tile(Matrix *M, size_t vertical, size_t horizontal);

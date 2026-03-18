@@ -28,8 +28,8 @@ int main()
     printf("\n");
     display(newM2);
     printf("\n");
-    printf("%lf\n", r_determinant(newM1));
-    printf("%lf\n", r_determinant(newM2));
+    printf("%lf\n", r_determinant(&M1));
+    printf("%lf\n", r_determinant(&M2));
 
 
 

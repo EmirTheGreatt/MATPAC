@@ -1,4 +1,7 @@
 #include <stddef.h>
+#define ON_ROWS 0;
+#define ON_COLUMNS 1;
+
 typedef struct{
     size_t  rows;
     size_t  cols;
@@ -52,6 +55,10 @@ void    add_col(Matrix *M, size_t src_col, size_t dst_col, double scalar);
 Matrix  *submatrix(Matrix *M, size_t startrow, size_t endrow, size_t startcol, size_t endcol, size_t steprow, size_t stepcol);
 double  r_determinant(Matrix *M);
 
+// Vectors
+double  dotp(Matrix *M1, Matrix *M2);
+
 // Big guns
 PLU     PLUdecomp(Matrix *M);
-Matrix  *invert(Matrix *M);
+Matrix  *inverse(Matrix *M);
+double  *eigenvalues(Matrix *M);

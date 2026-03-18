@@ -11,6 +11,7 @@ Matrix  *mat_dup(Matrix *M);
 Matrix  *mat_add(Matrix *M1, Matrix *M2);
 double  *get_ptr(Matrix *M, size_t row, size_t col);
 double  get_coeff(Matrix *M, size_t row, size_t col);
+void    set_coeff(Matrix *M, size_t row, size_t col, double scalar);
 void    scale(Matrix *M, double scalar);
 Matrix  *scalar_mul(Matrix *M, double scalar);
 void    free_matrix(Matrix *M); // Frees M -> data and M, UB if M is not in allocated memory
@@ -23,8 +24,9 @@ Matrix  *id(size_t n);
 Matrix  *transpose(Matrix *M);
 Matrix  *mat_mul(Matrix *M1, Matrix *M2);
 
+
 // Elementary row/column operations
-// TODO
+void    swap(double *p1, double *p2);
 void    row_swap(Matrix *M, size_t row1, size_t row2);
 void    col_swap(Matrix *M, size_t col1, size_t col2);
 void    scale_row(Matrix *M, size_t row, double scalar);
@@ -32,7 +34,7 @@ void    scale_col(Matrix *M, size_t col, double scalar);
 void    add_row(Matrix *M, size_t src_row, size_t dst_row, double scalar);
 void    add_col(Matrix *M, size_t src_col, size_t dst_col, double scalar);
 
-// Submatrix
+// Submatrix & determinan
 Matrix  *submatrix(Matrix *M, size_t startrow, size_t endrow, size_t startcol, size_t endcol, size_t steprow, size_t stepcol);
-//TODO
 double  r_determinant(Matrix *M);
+

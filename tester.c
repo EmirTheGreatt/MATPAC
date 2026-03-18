@@ -17,20 +17,35 @@ int main()
     M3.rows = 3;
     M3.cols = 4;
     M3.data = arr3;
+    Matrix *newM1 = submatrix(&M1, 0, 3, 0, 3, 2, 2);
+    Matrix *newM2 = submatrix(&M2, 0, 3, 0, 3, 2, 2);
+    
 
     display(&M1);
     printf("\n");
     display(&M2);
     printf("\n");
-    Matrix *newM1 = submatrix(&M1, 0, 3, 0, 3, 2, 2);
-    Matrix *newM2 = submatrix(&M2, 0, 3, 0, 3, 2, 2);
     display(newM1);
     printf("\n");
     display(newM2);
     printf("\n");
-    printf("%lf\n", r_determinant(&M1));
-    printf("%lf\n", r_determinant(&M2));
-
-
-
+    col_swap(&M1, 1,2);
+    display(&M1);
+    printf("\n");
+    row_swap(&M1, 1, 2);
+    display(&M1);
+    printf("\n");
+    scale_col(&M1, 2, -10);
+    display(&M1);
+    printf("\n");
+    scale_row(&M1, 1, 15);
+    display(&M1);
+    printf("\n");
+    add_row(&M1, 0, 1, -15);
+    display(&M1);
+    printf("\n");
+    add_col(&M1, 1, 2, -5);
+    display(&M1);
+    printf("\n");
+    
 }

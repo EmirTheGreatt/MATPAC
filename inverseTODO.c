@@ -1,5 +1,5 @@
 #include "matrix.h"
-
+/*
 Matrix  *inverse(Matrix *M)
 {
     if (M -> rows != M -> cols)
@@ -8,4 +8,4 @@ Matrix  *inverse(Matrix *M)
     size_t  n = M -> rows;
     Matrix  *to_be_returned = id(n);
     
-}
+}*/

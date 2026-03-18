@@ -29,23 +29,5 @@ int main()
     printf("\n");
     display(newM2);
     printf("\n");
-    col_swap(&M1, 1,2);
-    display(&M1);
-    printf("\n");
-    row_swap(&M1, 1, 2);
-    display(&M1);
-    printf("\n");
-    scale_col(&M1, 2, -10);
-    display(&M1);
-    printf("\n");
-    scale_row(&M1, 1, 15);
-    display(&M1);
-    printf("\n");
-    add_row(&M1, 0, 1, -15);
-    display(&M1);
-    printf("\n");
-    add_col(&M1, 1, 2, -5);
-    display(&M1);
-    printf("\n");
-    
+    display(tile(&M1, 3,3));
 }

@@ -1,6 +1,6 @@
 #include "matrix.h"
 
-void    copy_onto(Matrix *src_mat, Matrix *dst_mat, size_t row_index, size_t col_index)
+void    copy_onto(Matrix *dst_mat, Matrix *src_mat, size_t row_index, size_t col_index)
 {
     if (dst_mat -> cols - col_index < src_mat -> cols ||
         dst_mat -> rows - row_index < src_mat -> rows)

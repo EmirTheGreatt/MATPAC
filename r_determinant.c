@@ -22,9 +22,9 @@ double  r_determinant(Matrix *M)
         r_submat = submatrix(M, 1, n, i + 1, n, 1, 1);
         submat = hconcat(l_submat, r_submat);
         to_be_returned += flag * get_coeff(M,0,i) * r_determinant(submat);
-        free(l_submat);
-        free(r_submat);
-        free(submat);
+        free_matrix(l_submat);
+        free_matrix(r_submat);
+        free_matrix(submat);
         flag *= -1;
     }
     return to_be_returned;

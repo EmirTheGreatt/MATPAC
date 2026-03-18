@@ -3,7 +3,13 @@ typedef struct{
     size_t  rows;
     size_t  cols;
     double  *data;
-} Matrix;
+}   Matrix;
+
+typedef struct{
+    Matrix  *P;
+    Matrix  *L;
+    Matrix  *U;
+}   PLU;
 
 void    add_inplace(Matrix *M1, Matrix *M2);
 void    display(Matrix *M);

@@ -29,5 +29,27 @@ int main()
     printf("\n");
     display(newM2);
     printf("\n");
-    display(tile(&M1, 3,3));
+    Matrix *copyM1 = mat_dup(&M1);
+    Matrix *invM1 = id(3);
+    display(copyM1);
+    printf("\n");
+    display(invM1);
+    printf("\n");
+    add_row(invM1, 0, 2, -1);
+    add_row(invM1, 1, 2, -5);
+    add_row(invM1, 2, 0, 1.0/10.0);
+    scale_row(invM1, 2, -1.0/10.0);
+
+    add_row(copyM1, 0, 2, -1);
+    add_row(copyM1, 1, 2, -5);
+    add_row(copyM1, 2, 0, 1.0/10.0);
+    scale_row(copyM1, 2, -1.0/10.0);
+    display(copyM1);
+    printf("\n");
+    display(invM1);
+    printf("\n");
+    display(mat_mul(&M1, invM1));
+    printf("\n");
+
+    
 }

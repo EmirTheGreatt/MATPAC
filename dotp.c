@@ -3,7 +3,7 @@
 
 double  dotp(Matrix *M1, Matrix *M2)
 {
-    if (M1 -> cols != 1 || M2 -> cols != 1 || M1 -> rows != M2 -> rows)
+    if (M1 -> cols != M2 -> cols || M1 -> rows != M2 -> rows)
         return NAN;
     double to_be_returned = 0;
     for (size_t i = 0; i < M1 -> rows; i++)

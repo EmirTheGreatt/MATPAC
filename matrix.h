@@ -56,9 +56,12 @@ Matrix  *submatrix(Matrix *M, size_t startrow, size_t endrow, size_t startcol, s
 double  r_determinant(Matrix *M);
 
 // Vectors
-double  dotp(Matrix *M1, Matrix *M2); // dot product of two column vectors
+double  dotp(Matrix *M1, Matrix *M2); // dot product of matrices viewed as vectors
 double  norm(Matrix *M); // 2 norm of an arbitrary matrix
 double  pnorm(Matrix *M, double p); // p norm of an arbitrary matrix
+Matrix  *proj(Matrix *vector, Matrix *direction); // Projects vector onto direction (orthogonal)
+double  mat_cos(Matrix *M1, Matrix *M2); // Takes cosine between M1 and M2 considering them as vectors
+void  gram_schmidt(Matrix *M); // Applies gram schmidt to columns of M
 
 // Big guns
 // TODO!
@@ -79,3 +82,4 @@ void    copy_onto(Matrix *dst_mat, Matrix *src_mat, size_t row_index, size_t col
 Matrix  *tile(Matrix *M, size_t vertical, size_t horizontal);
 Matrix  *kronecker(Matrix *M1, Matrix *M2);
 Matrix  *outer(Matrix *M1, Matrix *M2);
+void    set_mat(Matrix *M1, double scalar);

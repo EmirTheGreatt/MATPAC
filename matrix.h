@@ -55,6 +55,7 @@ void    add_col(Matrix *M, size_t src_col, size_t dst_col, double scalar);
 // Submatrix & determinan
 Matrix  *submatrix(Matrix *M, size_t startrow, size_t endrow, size_t startcol, size_t endcol, size_t steprow, size_t stepcol);
 double  r_determinant(Matrix *M);
+double  i_determinant(Matrix *M);
 
 // Vectors
 double  dotp(Matrix *M1, Matrix *M2); // dot product of matrices viewed as vectors

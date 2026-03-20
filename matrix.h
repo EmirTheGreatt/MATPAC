@@ -1,6 +1,7 @@
 #include <stddef.h>
 #define ON_ROWS 0;
 #define ON_COLUMNS 1;
+#define ABS(X)    (X > 0 ? X : -X)
 
 typedef struct{
     size_t  rows;
@@ -84,3 +85,4 @@ Matrix  *kronecker(Matrix *M1, Matrix *M2);
 Matrix  *outer(Matrix *M1, Matrix *M2);
 void    set_mat(Matrix *M1, double scalar);
 int     is_equal(Matrix *M1, Matrix *M2);
+int     is_equal_eps(Matrix *M1, Matrix *M2, double epsilon); // Difference between each coefficient is less than epsilon

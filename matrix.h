@@ -83,3 +83,4 @@ Matrix  *tile(Matrix *M, size_t vertical, size_t horizontal);
 Matrix  *kronecker(Matrix *M1, Matrix *M2);
 Matrix  *outer(Matrix *M1, Matrix *M2);
 void    set_mat(Matrix *M1, double scalar);
+int     is_equal(Matrix *M1, Matrix *M2);

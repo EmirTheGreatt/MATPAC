@@ -50,6 +50,9 @@ int main()
     printf("\n");
     display(mat_mul(&M1, invM1));
     printf("\n");
+    printf("%lf\n", i_determinant(&M1));
+    printf("%lf\n", r_determinant(&M1));
+
 
     
 }

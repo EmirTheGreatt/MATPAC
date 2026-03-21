@@ -89,3 +89,6 @@ void    set_mat(Matrix *M1, double scalar);
 int     is_equal(Matrix *M1, Matrix *M2);
 int     is_equal_eps(Matrix *M1, Matrix *M2, double epsilon); // Difference between each coefficient is less than epsilon
 Matrix  *rand_mat(size_t rows, size_t cols, double (*rng)(void));
+Matrix  *rand_uniform(size_t rows, size_t cols);
+Matrix  *rand_int(size_t rows, size_t cols, int min, int max); // generates a matrix of integers (casted to doubles) between min and max, max excluded min included
+void    add_const(Matrix *M, double d);

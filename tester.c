@@ -2,6 +2,11 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+double random_double()
+{
+    return (double)rand() / (double)RAND_MAX;
+}
+
 int main()
 {
     double arr1[9] = {1,0,1,0,1,0,1,5,-9};
@@ -52,7 +57,13 @@ int main()
     printf("\n");
     printf("%lf\n", i_determinant(&M1));
     printf("%lf\n", r_determinant(&M1));
-
-
+    Matrix *randintmat;
+    for (int _ = 0; _ < 10; _++){
+        randintmat = rand_mat(5, 5, &random_double);
+        printf("%dth Matrix : \n", _);
+        display(randintmat);
+        printf("\n");
+        free(randintmat);
+    }
     
 }

@@ -67,7 +67,7 @@ double i_determinant(Matrix *M)
 
     double result = 0.0;
 
-    int parity = 1;  // <-- initialize BEFORE loop
+    int parity = 1;
 
     while (1)
     {
@@ -78,10 +78,11 @@ double i_determinant(Matrix *M)
 
         result += parity * term;
 
-        parity = next_perm(n, perm);
-        if (parity == 0)
+        int step = next_perm(n, perm);
+        if (step == 0)
             break;
-    }
 
+        parity *= step;  // <-- FIX
+    }
     return result;
 }

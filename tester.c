@@ -57,6 +57,11 @@ int main()
     printf("\n");
     printf("%lf\n", i_determinant(&M1));
     printf("%lf\n", r_determinant(&M1));
+    printf("%lf\n", g_determinant(&M1));
+    printf("%lf\n", i_determinant(&M2)); // ?
+    printf("%lf\n", r_determinant(&M2));
+    printf("%lf\n", g_determinant(&M2));
+    /*
     Matrix *randintmat;
     for (int _ = 0; _ < 10; _++){
         randintmat = rand_mat(5, 5, &random_double);
@@ -65,5 +70,5 @@ int main()
         printf("\n");
         free(randintmat);
     }
-    
+    */
 }

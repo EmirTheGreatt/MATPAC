@@ -3,6 +3,10 @@
 #define ON_COLUMNS 1;
 #define ABS(X)    (X > 0 ? X : -X)
 
+#define REF     1
+#define RREF    2
+#define ORT     3
+#define nORT    4
 
 typedef struct{
     size_t  rows;
@@ -10,19 +14,27 @@ typedef struct{
     double  *data;
 }   Matrix;
 
-typedef struct{
-    Matrix  *P;
-    Matrix  *L;
-    Matrix  *U;
-}   PLU;
+typedef enum
+{
+    ROW,
+    COL
+}   orientation;
+
+typedef enum
+{
+    SWAP,
+    ADD,
+    SCALE
+}   move_type;
 
 typedef struct{
-    char    type;
-    char    orientation;
-    size_t  src;
-    size_t  dst;
-    double  scalar;
-}   ELM; //Questionable choice, could require some rethinking
+    orientation ordir;
+    move_type   type;
+    size_t      src;
+    size_t      dst; // irrelevant if type is scale
+    double      scale; // irrelevant if type is swap
+}   elop;
+
 
 void    add_inplace(Matrix *M1, Matrix *M2);
 void    display(Matrix *M);
@@ -74,9 +86,6 @@ void  gram_schmidt(Matrix *M); // Applies gram schmidt to columns of M
 // GaussID(M, Vec) solves Mx = Vec
 // GaussID(M, id(n)) inverts M
 // GaussUP(M, id(n)) LU decomps ?
-PLU     PLUdecomp(Matrix *M);
-Matrix  *inverse(Matrix *M); // inverts matrix M, returns NULL if M is singular
-double  *eigenvalues(Matrix *M);
 
 // Misc
 Matrix  *range(double x, double y, size_t n);
@@ -94,3 +103,15 @@ Matrix  *rand_uniform(size_t rows, size_t cols);
 Matrix  *rand_int(size_t rows, size_t cols, int min, int max); // generates a matrix of integers (casted to doubles) between min and max, max excluded min included
 void    add_const(Matrix *M, double d);
 double  sum(Matrix *M);
+
+// One big row-Gauss.
+//TODO!
+void apply(elop op, ...);
+void Gauss(int target, char *format, Matrix *main, ...); /* 
+    elementary row or column operations are applied to main to get it into a form specified by "target"
+    REF Row echelon form
+    RREF Reduced row echelon form
+    format is a string containing letters m and d, 
+    each m represents a matrix and each d represents a double, the format then specifies order in which objects in ... appear
+    each operation to main is copied to each other object in ...
+    if said object is a double, swaps multiply by -1 and scales of a row by \lambda scaled d by same factor*/

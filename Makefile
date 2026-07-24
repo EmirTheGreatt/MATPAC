@@ -1,18 +1,22 @@
 # Compiler and flags
 CC = gcc
-CFLAGS = -Wall -Wextra -O2
+CFLAGS = -Wall -Wextra -O2 -IInclude
 
 # Library name
 LIB = MATPAC.a
 
-# Source files (all .c except tester.c)
-SRC = $(filter-out tester.c,$(wildcard *.c))
+# Folders
+SRC_DIR = Src
+TEST_DIR = Tests
 
-# Object files
+# Source files (all .c inside Src/)
+SRC = $(wildcard $(SRC_DIR)/*.c)
+
+# Object files (placed alongside source files)
 OBJ = $(SRC:.c=.o)
 
 # Tester
-TEST = tester.c
+TEST = $(TEST_DIR)/tester.c
 PROGRAM = program
 
 # Default target
@@ -28,9 +32,9 @@ $(LIB): $(OBJ)
 
 # Clean up
 clean:
-	rm -f $(OBJ) $(LIB) $(PROGRAM)
+	rm -f $(SRC_DIR)/*.o $(LIB) $(PROGRAM)
 
-test:
-	gcc $(TEST) $(LIB) -o $(PROGRAM)
+test: $(LIB)
+	$(CC) $(CFLAGS) $(TEST) $(LIB) -o $(PROGRAM)
 
 .PHONY: all clean test

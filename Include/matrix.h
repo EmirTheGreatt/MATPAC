@@ -32,7 +32,7 @@ typedef struct{
     move_type   type;
     size_t      src;
     size_t      dst; // irrelevant if type is scale
-    double      scale; // irrelevant if type is swap
+    double      scalar; // irrelevant if type is swap
 }   elop;
 
 
@@ -106,7 +106,9 @@ double  sum(Matrix *M);
 
 // One big row-Gauss.
 //TODO!
-void apply(elop op, ...);
+void apply(elop op, Matrix *M);
+void apply_num(elop op, double *scalar);
+void apply_all(elop op, char *format, ...); // applies op to objects in ...
 void Gauss(int target, char *format, Matrix *main, ...); /* 
     elementary row or column operations are applied to main to get it into a form specified by "target"
     REF Row echelon form
@@ -115,3 +117,22 @@ void Gauss(int target, char *format, Matrix *main, ...); /*
     each m represents a matrix and each d represents a double, the format then specifies order in which objects in ... appear
     each operation to main is copied to each other object in ...
     if said object is a double, swaps multiply by -1 and scales of a row by \lambda scaled d by same factor*/
+
+typedef struct 
+{
+    size_t  n;
+    size_t  arr[];
+}   perm;
+
+
+typedef struct 
+{
+    perm    P;
+    Matrix  *L;
+    Matrix  *U;
+}   PLU;
+
+PLU     *LU_decomp(Matrix *M);
+Matrix  *inverse(Matrix *M);
+double  determinant(Matrix *M);
+Matrix  *solve(Matrix *A, Matrix *b); // solves Ax = b, returns the column vector x
